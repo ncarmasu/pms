@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: ro.nca.pms.controllers.HelloControllerIT
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.086 sec <<< FAILURE! - in ro.nca.pms.controllers.HelloControllerIT
+getHello(ro.nca.pms.controllers.HelloControllerIT)  Time elapsed: 0.196 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected: "Greetings from Spring Boot!"
+     but: was "{\"timestamp\":1438165751687,\"status\":401,\"error\":\"Unauthorized\",\"message\":\"Full authentication is required to access this resource\",\"path\":\"/\"}"
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.junit.Assert.assertThat(Assert.java:956)
+	at org.junit.Assert.assertThat(Assert.java:923)
+	at ro.nca.pms.controllers.HelloControllerIT.getHello(HelloControllerIT.java:43)
+
