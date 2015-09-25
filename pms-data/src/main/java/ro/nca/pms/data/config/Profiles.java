@@ -1,4 +1,4 @@
-package ro.nca.pms.config;
+package ro.nca.pms.data.config;
 
 public interface Profiles {
     static final String  DEV = "dev";

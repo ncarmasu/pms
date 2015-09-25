@@ -4,15 +4,11 @@ import static org.junit.Assert.assertEquals;
 
 import java.time.Period;
 import java.time.ZonedDateTime;
-import java.util.Date;
 import java.util.List;
-
-import lombok.Cleanup;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.neo4j.cypher.internal.compiler.v2_1.planner.logical.steps.pickBestPlan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.ContextConfiguration;
@@ -22,13 +18,12 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 
-import ro.nca.pms.config.Profiles;
 import ro.nca.pms.data.config.DataAppConfig;
 import ro.nca.pms.data.entities.Pacient;
 import ro.nca.pms.data.repos.PacientRepository;
+import ro.nca.pms.data.config.Profiles;
 
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
-import com.github.springtestdbunit.annotation.DatabaseSetup;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { DataAppConfig.class })
@@ -47,9 +42,9 @@ public class PacientRepoTest {
         List<Pacient> pacientEntries = repository.findAll();
         assertEquals( pacientEntries.size(), 0 );
     }
-    
+
     @Before
-    public void cleanup(  ) {
+    public void cleanup(){
         repository.deleteAll();
     }
 
@@ -71,7 +66,7 @@ public class PacientRepoTest {
         assertEquals( pacientEntries.size(), 1 );
         Pacient p = pacientEntries.get( 0 );
         Integer retreivedAge = ZonedDateTime.now().getYear() - p.getBirthDate().getYear();
-        
+
         assertEquals( name, p.getFirstName() );
         assertEquals( lastname, p.getLastName() );
         assertEquals( pic, p.getPic() );
@@ -97,8 +92,8 @@ public class PacientRepoTest {
                                 Integer age ){
         Pacient pacient = new Pacient();
         pacient.setBirthDate( ZonedDateTime.now().minus( Period.ofYears( age ) ) );
-//        pacient.setCreatedBy( "admin" );
-//        pacient.setModifiedBy( "admin" );        
+        // pacient.setCreatedBy( "admin" );
+        // pacient.setModifiedBy( "admin" );
         pacient.setFirstName( name );
         pacient.setLastName( lastName );
         pacient.setPic( pic );

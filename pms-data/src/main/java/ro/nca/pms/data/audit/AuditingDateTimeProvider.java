@@ -6,7 +6,9 @@ import java.util.GregorianCalendar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.auditing.DateTimeProvider;
 
-import ro.nca.pms.services.DateTimeService;
+import ro.nca.pms.data.services.DateTimeService;
+
+
 
 public class AuditingDateTimeProvider implements DateTimeProvider {
     

@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
-import ro.nca.pms.services.DateTimeService;
+import ro.nca.pms.data.services.DateTimeService;
+
 
 @Service
 public class IntegrationDateTimeService implements DateTimeService{

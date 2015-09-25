@@ -9,13 +9,16 @@ import org.springframework.core.env.Environment;
 import org.springframework.data.auditing.DateTimeProvider;
 import org.springframework.data.domain.AuditorAware;
 
-import ro.nca.pms.config.Profiles;
+
+
+
 import ro.nca.pms.data.audit.AuditingDateTimeProvider;
 import ro.nca.pms.data.audit.IntegrationDateTimeService;
 import ro.nca.pms.data.audit.IntegrationUsernameAuditor;
 import ro.nca.pms.data.audit.UsernameAuditorAware;
-import ro.nca.pms.services.DateTimeService;
-import ro.nca.pms.services.impl.CurrentTimeDateTimeService;
+import ro.nca.pms.data.services.DateTimeService;
+import ro.nca.pms.data.services.impl.CurrentDateTimeService;
+
 
 @Configuration
 @Import({ PersistenceContext.class })
@@ -27,7 +30,7 @@ public class DataAppConfig {
     @Profile({ Profiles.DEV, Profiles.PROD })
     @Bean
     DateTimeService currentTimeDateTimeService(){
-        return new CurrentTimeDateTimeService();
+        return new CurrentDateTimeService();
     }
 
     // @Profile({Profiles.INTEGRATION, Profiles.TEST})
